@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+body {
+    background: url(CoverPage.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-box {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    border-radius: 20px;
+    backdrop-filter: blur (15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box h2 {
+    color: #3a341f;
+    text-align: center;
+    font-size: 32px;
+}
+
+.form-box .opt {
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid #3a341f;
+}
+
+.form-box .opt select{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 20px 0 0px;
+    color: #3a341f;
+    font-size: 16px;
+}
+
+.form-box .input-box {
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid #3a341f;
+}
+
+.form-box .input-box input {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 20px 0 5px;
+    color: #3a341f;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #3a341f;
+}
+
+i{
+    position: absolute;
+    color: #3a341f;
+    top: 13px;
+    right: 5px;
+}
+
+.btn {
+    color: #3a341f;
+    background: #d068179c;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 3px 0 10px Orgba(0, 0, 0, .5);
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.group span a {
+    color: #3a341f;
+    position: relative;
+    top: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.group a:hover {
+    text-decoration: underline;
+    transition: 0.7s;
+}
+
+#response
+{
+    color: red;
+    font-weight: 600;
+    position: relative;
+    top: 25px
+}

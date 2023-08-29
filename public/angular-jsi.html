@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/angular.min.js"></script>
+    <title>Document</title>
+    <script>
+        var mymodule=angular.module("kuchModule",[]);
+        var controller=mymodule.controller("kuchController",function($scope,$http)
+        {
+            $scope.doDelete=function(Email,index)
+            {
+                
+                alert(Email+" will be deleted");
+                /*$scope.JSONAry.splice(index,1);*/
+                $http.get("/doDelete?Email="+Email).then(fxKuchGood,fxKuchBad);
+                    function fxKuchGood(jsonResp)
+                    {
+                        alert(jsonResp.data);
+                        $scope.doFetchAll();
+                    }
+                    function fxKuchBad(jsonResp)
+                    {
+                        alert(jsonResp.data);
+                    }
+            }
+            $scope.doFetchAll=function()
+            {
+                    $http.get("/showAll").then(fxKuchGood,fxKuchBad);
+                    function fxKuchGood(jsonResp)
+                    {
+                        alert(JSON.stringify(jsonResp.data));
+                        $scope.JSONAry=jsonResp.data;
+                    }
+                    function fxKuchBad(jsonResp)
+                    {
+                        alert(jsonResp.data);
+                    }
+
+            }
+        })
+
+    </script>
+</head>
+<body ng-app="kuchModule" ng-controller="kuchController">
+    <hr>
+    <center>
+        <p>
+            <input type="button" value="Show All from database" ng-click="doFetchAll();">
+        </p>
+    </center>
+    <center>
+        <h2>
+            All Records
+        </h2>
+        <table width="750" border="1">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Contact_Number</th>
+                <th>Occupation</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Categories_of_interest</th>
+                <th>No_of_companies_invested</th>
+                <th>Amount_Invested</th>
+                <th>Aadhaar_Card</th>
+                <th>Profile_Pic</th>
+                <th>Other_Information</th>
+                <th>Delete Account</th>
+            </tr>
+            <tr ng-repeat="obj in JSONAry">
+                <td>{{$index+1}}</td>
+                <td>{{obj.Email}}</td>
+                <td>{{obj.Name}}</td>
+                <td>{{obj.Contact_Number}}</td>
+                <td>{{obj.Occupation}}</td>
+                <td>{{obj.Address}}</td>
+                <td>{{obj.Country}}</td>
+                <td>{{obj.State}}</td>
+                <td>{{obj.City}}</td>
+                <td>{{obj.Categories_of_interest}}</td>
+                <td>{{obj.No_of_companies_invested}}</td>
+                <td>{{obj.Amount_Invested}}</td>
+                <td><img src="uploads/{{obj.Aadhaar_Card}}" width="50" height="50" alt=""></td>
+                <td><img src="uploads/{{obj.Profile_Pic}}" width="50" height="50" alt=""></td>
+                <td>{{obj.Other_Information}}</td>
+                <td>
+                    <input type="button" value="Delete" ng-click="doDelete(obj.Email,$index);">
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

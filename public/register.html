@@ -1,0 +1,47 @@
+<! DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <title>register</title>
+        <link rel="stylesheet" href="css/register.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="js/jquery-1.8.2.min.js"></script>
+        <script src="js/register.js"></script>
+    </head>
+
+    <body>
+        <!-- First We have to create Registration form -->
+        <div class="container">
+            <div class="form-box">
+                <form action="" name="frmSignup" method="post" enctype="multipart/form-data">
+                    <h2>Register</h2>
+                    <p id="response" ></p>
+                    <div class="opt">
+                        <select name="Users" id="Users">
+                            <option value="none">Select User Type</option>
+                            <option value="Investor">Investor</option>
+                            <option value="Entrepreneur">Entrepreneur</option>
+                          </select>
+                    </div>
+                    <div class="input-box">
+                        <i class="fa fa-envelope" style="font-size: 20px;"></i>
+                        <input type="email" name="Email" id="Email" placeholder="Email">
+                    </div>
+                    <div class="input-box">
+                        <i class="fa fa-eye-slash" style="font-size: 22px;"></i>
+                        <input type="password" name="Password" id="Password" placeholder="Password">
+                    </div>
+                    <div class="button">
+                        <button type="button" class="btn" id="register">Register</button>
+                    </div>
+                    <div class="group">
+                        <span><a href="#">Forget-Password?</a></span>
+                        <span><a href="login.html">Login</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+    </html>

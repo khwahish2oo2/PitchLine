@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    
+        <script>
+            $(document).ready(function () {
+    
+                var mail = localStorage["mail"];
+                document.getElementById("EmailId").value = mail;
+    
+                $("#Search-btn").click(function () {
+                    var userid = $("#EmailId").val();
+                    var urlWithData = "/JSONfindRecord?Uid=" + userid;
+                    $.getJSON(urlWithData, function (responseJSONAry) {
+                        if (responseJSONAry.length == 0)
+                            alert("Your Profile Page has No Data Yet.");
+                        else 
+                        {
+                            $("#hdn1").val(responseJSONAry[0].Photo);
+                            $("#img1").attr("src", "/uploads/" + responseJSONAry[0].Photo);
+                            $("#hdn2").val(responseJSONAry[0].Aadhaar_Card);
+                            $("#img2").attr("src", "/uploads/" + responseJSONAry[0].Aadhaar_Card);
+                            $("#Name").val(responseJSONAry[0].Name);
+                            $("#contact").val(responseJSONAry[0].Contact_Number);
+                            $("#Address").val(responseJSONAry[0].Address);
+                            $("#Country").val(responseJSONAry[0].Country);
+                            $("#ocptn").val(responseJSONAry[0].Company);
+                            $("#Category").val(responseJSONAry[0].Interests);
+                            $("#Amount").val(responseJSONAry[0].Investment_Size);
+                            $("#OtherInfo").val(responseJSONAry[0].Other_Information);
+                        }
+                    })
+                });
+            })    
+        </script>
+</head>
+
+<body>
+    <section class="header" id="Home">
+        <div class="hero">
+            <h1>Profile</h1>
+            <form name="frmProfile" method="post" enctype="multipart/form-data">    
+
+            <input type="hidden" id="hdn1" name="hdn1">
+            <input type="hidden" id="hdn2" name="hdn2">
+
+            <button type="button"  class="main-btn" id="Search-btn">AUTO-FILL</button>
+            <div class="row">
+                <div class="card">
+                    <h2>Personal Details</h2>
+                    <div class="row">
+                        <div>
+                            <img id="img1" src="pics/NoPhoto.png">
+                            <label for="input-photo">Choose Photo</label>
+                            <input type="file" id="input-photo" name="profilePic" style="display :none">
+                        </div>
+                        <div>
+                            <img id="img2" src="pics/noDoc.png">
+                            <label for="input-doc">Choose Document</label>
+                            <input type="file" id="input-doc" name="aadhaarCard" style="display :none">
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <h4>Email: </h4>
+                        <input type="email" class="form-control" readonly id="EmailId" name="EmailId">
+                    </div>
+                    <div class="input-box">
+                        <h4>Name: </h4>
+                        <input type="text" class="form-control" aria-label="FLname" id="Name" name="Name">
+                    </div>
+                    <div class="input-box">
+                        <h4>Phone: </h4>
+                        <input type="text" class="form-control" id="contact" name="contact"
+                            placeholder="+91 70096-83067">
+                    </div>
+
+                </div>
+                <div class="card">
+                    <h2>Business Details</h2>
+                    
+                    <div class="input-box">
+                        <h4>Company: </h4>
+                        <input type="text" class="form-control" id="ocptn" name="ocptn" >
+                    </div>
+                    <div class="input-box">
+                        <h4>Address: </h4>
+                        <input type="text" class="form-control" id="Address" name="Address"
+                            placeholder="Permanet Address">
+                    </div>
+                    <div class="input-box">
+                        <h4>Country: </h4>
+                        <input type="text" class="form-control" id="Country" name="Country" >
+                    </div>
+                    <div class="input-box">
+                        <h4>Interests: </h4>
+                        <select class="form-select" size="3" id="Category" name="Category" multiple id="">
+                            <option selected>Choose...</option>
+                            <option value="Pharmaceutical">Pharmaceutical</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="Infrastructure">Infrastructure</option>
+                            <option value="Healthcare">Healtcare</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Food">Food</option>
+                            <option value="Financial Services">Financial Services</option>
+                            <option value="E-commerce">E-commerce</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <h4>Investment Size: </h4>
+                        <input type="text" class="form-control" placeholder="In Lakhs" name="Amount" id="Amount">
+                    </div>
+                    <div class="input-box">
+                        <h4>Other Information: </h4>
+                        <textarea class="form-control" id="OtherInfo" name="OtherInfo" rows="1"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row2">
+                <div>
+                    <button type="Submit" class="main-btn" formaction="/profile-save" >SAVE</button>
+                </div>
+                <div>
+                    <button type="Submit" class="main-btn" formaction="/profile-update">UPDATE</button>
+                </div>
+            </div>     
+        </form>       
+        </div>
+        
+    </section>
+
+    <script>
+        let profilePic = document.getElementById("img1");
+        let inputPhoto = document.getElementById("input-photo");
+        inputPhoto.onchange = function () {
+            profilePic.src = URL.createObjectURL(inputPhoto.files[0]);
+        }
+
+        let Aadhar = document.getElementById("img2");
+        let inputFile = document.getElementById("input-doc");
+        inputFile.onchange = function () {
+            Aadhar.src = URL.createObjectURL(inputFile.files[0]);
+        }
+    </script>
+
+</body>
+
+</html>

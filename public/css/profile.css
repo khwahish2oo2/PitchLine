@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    min-height: 120vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-image: url(nicebg.jpg);
+    align-items: center;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.hero {
+    width: 80%;
+    color: #3a341f;
+    margin: auto;
+    text-align: center;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.row {
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 510px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    border-color: rgb(28, 16, 2);
+    text-align: left;
+    color: #333;
+}
+
+#img1 {
+    width: 200px;
+    height: 180px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#img2 {
+    width: 220px;
+    height: 185px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+label {
+    display: block;
+    width: 180px;
+    background: #d6560ccf;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.input-box {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    padding: 0 10px 0 5px;
+    color: #3a341f;
+    font-size: 16px;
+}
+
+.input-box select{
+    width: 104%;
+    background: transparent;
+    padding: 0 20px 0 5px;
+    color: #3a341f;
+    font-size: 16px;
+}
+
+.input-box textarea{
+    width: 100%;
+    background: transparent;
+    padding: 0 20px 0 5px;
+    color: #3a341f;
+    font-size: 16px;
+}
+
+.row2 {
+    width: 30%;
+    margin-top: 3% auto ;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20%
+}
+
+.main-btn
+{
+    display: block;
+    width: 150px;
+    background: #d6560ccf;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+@media(max-width: 700px) {
+    .card{
+        width:auto
+    }
+    .row {
+        flex-direction: column;
+    }
+}

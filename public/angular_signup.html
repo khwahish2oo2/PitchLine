@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/angular.min.js"></script>
+    <title>Document</title>
+    <script>
+        var mymodule=angular.module("kuchModule",[]);
+        var controller=mymodule.controller("kuchController",function($scope,$http)
+        {
+            $scope.doblock=function(Email,index)
+            {
+                alert(Email+" will be blocked")
+                $http.get("/status_update?Email="+Email).then(fxKuchGood,fxKuchBad);
+                    function fxKuchGood(jsonResp)
+                    {
+                        alert(jsonResp.data);
+                        $scope.doFetchAll();
+                    }
+                    function fxKuchBad(jsonResp)
+                    {
+                        alert(jsonResp.data);
+                    }
+            }
+            $scope.doresume=function(Email,index)
+            {
+                alert(Email+" will be Resumed")
+                $http.get("/status_resume?Email="+Email).then(fxKuchGood,fxKuchBad);
+                    function fxKuchGood(jsonResp)
+                    {
+                        alert(jsonResp.data);
+                        $scope.doFetchAll();
+                    }
+                    function fxKuchBad(jsonResp)
+                    {
+                        alert(jsonResp.data);
+                    }
+            }
+
+            $scope.doFetchAll=function()
+            {
+                    $http.get("/showAll3").then(fxKuchGood,fxKuchBad);
+                    function fxKuchGood(jsonResp)
+                    {
+                        alert(JSON.stringify(jsonResp.data));
+                        $scope.JSONAry=jsonResp.data;
+                    }
+                    function fxKuchBad(jsonResp)
+                    {
+                        alert(jsonResp.data);
+                    }
+
+            }
+        })
+
+    </script>
+</head>
+<body ng-app="kuchModule" ng-controller="kuchController">
+    <hr>
+    <center>
+        <p>
+            <input type="button" value="Show All from database" ng-click="doFetchAll();">
+        </p>
+    </center>
+    <center>
+        <h2>
+            All Records
+        </h2>
+        <table width="750" border="1">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Email</th>
+                <th>Password</th> 
+                <th>Status</th>                
+                <th>Block Account</th>
+                <th>Resume Account</th>
+            </tr>
+            <tr ng-repeat="obj in JSONAry">
+                <td>{{$index+1}}</td>
+                <td>{{obj.Email}}</td>
+                <td>{{obj.Password}}</td>
+                <td>{{obj.Status}}</td> 
+                <td>
+                    <input type="button" value="Block" ng-click="doblock(obj.Email,$index);">
+                </td>
+                <td>
+                    <input type="button" value="Resume" ng-click="doresume(obj.Email,$index);">
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <section class="header" id="Home">
+        <nav>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="#Home">HOME</a></li>
+                    <li><a href="#Explore">EXPLORE</a></li>
+                    <li><a href="#Reviews">REVIEWS</a></li>
+                    <li><a href="#Contact">CONTACT US</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="Register.html">REGISTER</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" id="fas" onclick="showMenu()"></i>
+        </nav>  
+        
+        <div class="text-box" id="textBox">
+            <h1>Pitch-Line</h1>
+            <p>"From Concepts to Capital: Your Investment Journey Begins"</p>
+            <a href="login.html" class="main-btn"> Get Started </a>
+        </div>
+    </section>
+
+
+    <section class="Explore" id="Explore">
+        <h1>Explore</h1>
+        <div class="row">
+            <div class="Explore-col">
+                <img src="pics/benjamin-child-GWe0dlVD9e0-unsplash.jpg" alt="">
+                <h3>Online Pitching</h3>
+                <p>
+                    Made Pitching Easy. Get to know the investors around interested in your Idea and easily
+              Persuade them to invest through this Platform.
+                </p>
+            </div>
+            <div class="Explore-col">
+                <img src="pics/Pitch-anywhere.jpg" alt="">
+                <h3>Online Investment</h3>
+                <p>
+                    Get to know the innovative ideas and invest the Money through this
+                    Online platform in idea which you are interested in.
+                </p>
+            </div>
+            <div class="Explore-col">
+                <img src="pics/Invest-anywhere.jpg" alt="">
+                <h3>Know about New Ideas</h3>
+                <p>
+                    Get To know up the new innovative ideas and Learn how you may pitch your idea and how
+              you may Persuade the investors to invest.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="Reviews" id="Reviews">
+        <h1>What Our Users Say</h1>
+        <div class="row">
+            <div class="Reviews-col">
+                <img src="pics/WhatsApp Image 2022-03-14 at 16.20.08.jpeg" alt="">
+                <div>
+                    
+                    <h3>Khwahish Mittal</h3>
+                    <p>
+                        As an entrepreneur, I used this website Pitch-Line for finding investors to raise money in my project. 
+                        And it was a great experience while using this website. Excellent interface of the website.
+                    </p>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="Reviews-col">
+                <img src="pics/sir.jpg" alt="">
+                <div>
+                    <h3>Rajesh K. Bansal</h3>
+                    <p>
+                        A very user-friendly website. Got to know many new entrepreneurs joining Pitch-Line with their unique business model ideas. 
+                        Loved to know about the advancement of technology and new innovations. 
+                    </p>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="footer" id="Contact">
+        <h4>Contact Us</h4>
+        <p>Final-Year Undergraduate pursuing B.E. in Electronics and Computer Engineering <br> at
+            Thapar Institute of Engineering and Technology, Patiala. <br> <b>Contact:</b> +91 70096-83067    <b>Email:</b>
+            kmittal2_be20@thapar.edu</p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+    </section>
+
+    <script>
+        var navLinks=document.getElementById("navLinks");
+        var textBox=document.getElementById("textBox");
+        var fas=document.getElementById("fas");
+        function showMenu()
+        {
+            fas.style.display= "none";
+            textBox.style.left="-200px";
+            navLinks.style.left="0";
+        }
+        function hideMenu(){
+            fas.style.display= "block";
+            textBox.style.left="50%";
+            navLinks.style.left="-200px";
+        }
+    </script>
+</body>
+</html>

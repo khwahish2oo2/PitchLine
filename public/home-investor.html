@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#log").click(function()
+        {
+          localStorage.clear();
+          window.location.replace("/index.html");
+        })
+
+        $("#profile").click(function()
+        {
+          window.location.replace("/profile-investor.html");
+        })
+      })
+      
+    </script>
+</head>
+<body>
+    <section class="header" id="Home">
+        <nav>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="#Explore">EXPLORE</a></li>
+                    <li><a href="notifications.html">NOTIFICATIONS</a></li>
+                    <li><a href="profile-investor.html">PROFILE</a></li>
+                    <button type="button" class="main-btn" id="log" >LOG OUT</button>
+                </ul>
+            </div>
+            <i class="fa fa-bars" id="fas" onclick="showMenu()"></i>
+        </nav>  
+        
+        <div class="text-box" id="textBox">
+            <h1>Welcome!</h1>
+            <p>"Unlocking Opportunities: Explore a World
+            <br>of Innovation and Growth as an Investor on Our Platform."</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="Explore" id="Explore">
+        <div class="row">
+            <div class="Explore-col">
+                <img src="pics/ProfileIcon.png" alt="">
+                <button type="button" class="btn" id="profile">My Profile</button>
+            </div>
+            <div class="Explore-col">
+                <img src="pics/search.jpg" alt="">
+                <button type="button" class="btn" id="search">Search Entrepreneurs</button>
+            </div>
+            <div class="Explore-col">
+                <img src="pics/Searches.jpg" alt="">
+                <button type="button" class="btn" id="investments">My Investments</button>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        var navLinks=document.getElementById("navLinks");
+        var textBox=document.getElementById("textBox");
+        var fas=document.getElementById("fas");
+        function showMenu()
+        {
+            fas.style.display= "none";
+            textBox.style.left="-200px";
+            navLinks.style.left="0";
+        }
+        function hideMenu(){
+            fas.style.display= "block";
+            textBox.style.left="50%";
+            navLinks.style.left="-200px";
+        }
+    </script>
+</body>
+</html>
